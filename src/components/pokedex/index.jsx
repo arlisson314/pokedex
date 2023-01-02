@@ -25,12 +25,14 @@ function Pokedex() {
   }, []);
   return (
     <Container>
-      <h1>Pokémons List</h1>
-      { load
-        ? <h2>loadong...</h2>
-        : pokeList.map(({ name, url }) => (
-          <PokeCard key={name} url={url} />
-        ))}
+      <h1>Pokedex</h1>
+      <div>
+        { load
+          ? <h2>loadong...</h2>
+          : pokeList.map(({ name, url }) => (
+            <PokeCard key={name} url={url} />
+          ))}
+      </div>
     </Container>
   );
 }
