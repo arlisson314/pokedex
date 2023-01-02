@@ -1,5 +1,5 @@
 import React from 'react';
-import Pokedex from './components/pokedex/pokedex';
+import Pokedex from './components/pokedex';
 /*
   Consumir a API e listar todos os poquemons da consulta do seguinte endpoint
   https://pokeapi.co/api/v2/pokemon/

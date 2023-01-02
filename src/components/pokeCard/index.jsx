@@ -19,7 +19,6 @@ function PokeCard({ url }) {
     pokemon();
   }, []);
 
-  console.log(pokeInfo?.sprites.other['official-artwork'].front_default);
   return (
     <div>
       <h3>{pokeInfo?.name}</h3>

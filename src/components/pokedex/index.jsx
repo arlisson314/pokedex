@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import PokeCard from '../pokeCard/pokeCard';
+import PokeCard from '../pokeCard';
 
-// import { Container } from './styles';
+import Container from './styles';
 
 function Pokedex() {
   const [pokeList, setPokeList] = useState([]);
   const [load, setLoad] = useState(true);
+
   const getPokemons = async () => {
     try {
       const response = await fetch('https://pokeapi.co/api/v2/pokemon/');
-
       const data = await response.json();
       const { results } = data;
       setPokeList(results);
@@ -24,14 +24,14 @@ function Pokedex() {
     getPokemons();
   }, []);
   return (
-    <div>
+    <Container>
       <h1>Pokémons List</h1>
       { load
         ? <h2>loadong...</h2>
         : pokeList.map(({ name, url }) => (
           <PokeCard key={name} url={url} />
         ))}
-    </div>
+    </Container>
   );
 }
 
