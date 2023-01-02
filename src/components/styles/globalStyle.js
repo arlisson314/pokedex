@@ -8,8 +8,6 @@ export default createGlobalStyle`
 }
 
 html, body, #root {
-  max-height: 100vh;
-  max-width: 100vw;
   margin: auto;
   display: flex;
   justify-content: center;
