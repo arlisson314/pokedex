@@ -1,9 +1,10 @@
 import React from 'react';
+import Pokedex from './components/pokedex/pokedex';
 
 function App() {
   return (
     <div className="App">
-      <h1>Arlisson</h1>
+      <Pokedex />
     </div>
   );
 }
