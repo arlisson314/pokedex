@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-// import { Container } from './styles';
+import Container from './styles';
 
 function PokeCard({ url }) {
   const [pokeInfo, setPokeInfo] = useState(null);
@@ -20,14 +20,14 @@ function PokeCard({ url }) {
   }, []);
 
   return (
-    <div>
-      <h3>{pokeInfo?.name}</h3>
+    <Container>
       <img
         src={pokeInfo?.sprites.other['official-artwork'].front_default}
         alt={pokeInfo?.name}
       />
+      <h3>{pokeInfo?.name}</h3>
       <p>{`Level - ${pokeInfo?.base_experience}`}</p>
-    </div>
+    </Container>
   );
 }
 
