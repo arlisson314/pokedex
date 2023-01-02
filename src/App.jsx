@@ -1,5 +1,6 @@
 import React from 'react';
 import Pokedex from './components/pokedex';
+import GlobalStyle from './components/styles/globalStyle';
 /*
   Consumir a API e listar todos os poquemons da consulta do seguinte endpoint
   https://pokeapi.co/api/v2/pokemon/
@@ -17,7 +18,8 @@ import Pokedex from './components/pokedex';
 */
 function App() {
   return (
-    <div className="App">
+    <div>
+      <GlobalStyle />
       <Pokedex />
     </div>
   );
