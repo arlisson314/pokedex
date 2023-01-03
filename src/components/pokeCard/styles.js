@@ -8,7 +8,7 @@ const Container = styled.div`
   border-radius: 5px;
   margin-top: 1em;
   display : flex;
-  height: 10em;
+  height: 11em;
   width: 8em;
 
     >img {
@@ -18,15 +18,14 @@ const Container = styled.div`
       background: red;
       height: 6em;
       width: 100%;
-      /* margin-top:0 */
     }
     >h3 {
       font-size: 1.2em;
     }
     >p{
+      font-weight: bold;
       font-size: 0.9em;
       padding: 1px;
-      font-weight: bold;
     }
 `;
 
