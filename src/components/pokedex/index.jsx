@@ -5,11 +5,14 @@ import Container from './styles';
 
 function Pokedex() {
   const [pokeList, setPokeList] = useState([]);
+  const [pokeListCop, setPokeListCop] = useState([]);
   const [load, setLoad] = useState(true);
+  const PokeUrl = 'https://pokeapi.co/api/v2/pokemon/';
 
   const getPokemons = async () => {
     try {
-      const response = await fetch('https://pokeapi.co/api/v2/pokemon/');
+      // https://pokeapi.co/api/v2/pokemon?offset=20&limit=20
+      const response = await fetch(PokeUrl);
       const data = await response.json();
       const { results } = data;
       setPokeList(results);
@@ -23,13 +26,27 @@ function Pokedex() {
   useEffect(() => {
     getPokemons();
   }, []);
+
+  const filterPokemonsList = (value) => {
+    const filteredName = pokeList
+      .filter((pokemon) => pokemon.name.toLowerCase().includes(value.trim().toLowerCase()));
+    setPokeListCop(filteredName);
+  };
+
+  const list = pokeListCop.length ? pokeListCop : pokeList;
   return (
     <Container>
       <h1>Pokedex</h1>
+      <input
+        type="text"
+        name="searchPokemon"
+        onChange={({ target }) => filterPokemonsList(target.value)}
+        placeholder="Pesquisar pelo nome"
+      />
       <div>
         { load
           ? <h2>loadong...</h2>
-          : pokeList.map(({ name, url }) => (
+          : list.map(({ name, url }) => (
             <PokeCard key={name} url={url} />
           ))}
       </div>
