@@ -8,11 +8,7 @@ export default createGlobalStyle`
 }
 
 html, body, #root {
-  margin: auto;
-  display: flex;
-  justify-content: center;
-
-  height: 100%;
-  width: 100%;
+  width: 100vw;
+  max-height: 100vh;
 }
 `;
