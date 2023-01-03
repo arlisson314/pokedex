@@ -8,7 +8,7 @@ const Container = styled.div`
   border-radius: 5px;
   margin-top: 1em;
   display : flex;
-  height: 11em;
+  height: 13.5em;
   width: 8em;
 
     >img {
@@ -16,7 +16,7 @@ const Container = styled.div`
       border-top-right-radius: 3px;
       border-top-left-radius: 3px;
       background: red;
-      height: 6em;
+      height: 7em;
       width: 100%;
     }
     >h3 {
