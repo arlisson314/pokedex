@@ -4,6 +4,7 @@ import Container from './styles';
 
 function PokeCard({ url }) {
   const [pokeInfo, setPokeInfo] = useState(null);
+
   const pokemon = async () => {
     try {
       const response = await fetch(url);
@@ -17,7 +18,7 @@ function PokeCard({ url }) {
   useEffect(() => {
     pokemon();
   }, []);
-
+  // console.log(pokeInfo);
   return (
     <Container>
       <img

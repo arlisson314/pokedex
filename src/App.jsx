@@ -1,5 +1,5 @@
 import React from 'react';
-import Pokedex from './components/pokedex';
+import Pokedex from './pages/pokedex';
 import GlobalStyle from './components/styles/globalStyle';
 /*
   Consumir a API e listar todos os poquemons da consulta do seguinte endpoint
@@ -13,7 +13,7 @@ import GlobalStyle from './components/styles/globalStyle';
   aceesar informcôes individuais de cada pokemono no endpoint
   https://pokeapi.co/api/v2/pokemon/:id
 
-  dicas => sprint.front_default
+  dicas => sprites.front_default
   experiência => base_experience
 */
 function App() {

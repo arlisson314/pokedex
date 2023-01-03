@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import PokeCard from '../pokeCard';
+import PokeCard from '../../components/pokeCard';
 
 import Container from './styles';
 
 function Pokedex() {
   const [pokeList, setPokeList] = useState([]);
-  const [pokeListCop, setPokeListCop] = useState([]);
+  const [filteredPokeList, setFilteredPokeListCop] = useState([]);
   const [load, setLoad] = useState(true);
-  const PokeUrl = 'https://pokeapi.co/api/v2/pokemon/';
+  const [offsetNum, setffsetNum] = useState(0);
+  const pokeUrl = `https://pokeapi.co/api/v2/pokemon?offset=${offsetNum}&limit=20`;
 
   const getPokemons = async () => {
     try {
-      // https://pokeapi.co/api/v2/pokemon?offset=20&limit=20
-      const response = await fetch(PokeUrl);
+      const response = await fetch(pokeUrl);
       const data = await response.json();
       const { results } = data;
       setPokeList(results);
@@ -25,15 +25,28 @@ function Pokedex() {
 
   useEffect(() => {
     getPokemons();
-  }, []);
+  }, [offsetNum]);
 
   const filterPokemonsList = (value) => {
     const filteredName = pokeList
       .filter((pokemon) => pokemon.name.toLowerCase().includes(value.trim().toLowerCase()));
-    setPokeListCop(filteredName);
+    setFilteredPokeListCop(filteredName);
   };
 
-  const list = pokeListCop.length ? pokeListCop : pokeList;
+  const incrementNumPoke = () => {
+    setffsetNum(offsetNum + 20);
+  };
+
+  const decrementNumPoke = () => {
+    if (offsetNum > 0) {
+      setffsetNum(offsetNum - 20);
+    }
+  };
+
+  // console.log(pokeUrl);
+
+  const list = filteredPokeList.length ? filteredPokeList : pokeList;
+
   return (
     <Container>
       <h1>Pokedex</h1>
@@ -43,6 +56,10 @@ function Pokedex() {
         onChange={({ target }) => filterPokemonsList(target.value)}
         placeholder="Pesquisar pelo nome"
       />
+      <div>
+        <button type="button" onClick={decrementNumPoke}>previous</button>
+        <button type="button" onClick={incrementNumPoke}>next</button>
+      </div>
       <div>
         { load
           ? <h2>loadong...</h2>
