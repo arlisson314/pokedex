@@ -7,12 +7,6 @@ const Container = styled.div`
   display: flex;
   height: 100%;
   width: 100%;
-
-    >img {
-      width: 15em;
-      height:5.2em;
-    }
-
     >div{
       flex-direction: wrap;
       margin-top:0.4em;
