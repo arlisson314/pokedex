@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { FaCaretRight, FaCaretLeft } from 'react-icons/fa';
+import PokeLogo from '../../images/PokeLogo.png';
 import PokeCard from '../../components/pokeCard';
+import Button from '../../components/button';
 
 import Container from './styles';
 
@@ -48,7 +50,7 @@ function Pokedex() {
 
   return (
     <Container>
-      <img src="https://www.pngall.com/wp-content/uploads/13/Pokemon-Logo-PNG-Images-HD.png" alt="logo" />
+      <img src={PokeLogo} alt="logo" />
       <input
         type="text"
         name="searchPokemon"
@@ -56,16 +58,8 @@ function Pokedex() {
         placeholder="Pesquisar pelo nome"
       />
       <div>
-        <button type="button" onClick={decrementNumPoke}>
-          <FaCaretLeft />
-        </button>
-
-        <button
-          type="button"
-          onClick={incrementNumPoke}
-        >
-          <FaCaretRight />
-        </button>
+        <Button logo={<FaCaretLeft />} decrementNumPoke={decrementNumPoke} />
+        <Button logo={<FaCaretRight />} decrementNumPoke={incrementNumPoke} />
       </div>
       <section>
         { load
