@@ -33,7 +33,7 @@ function Pokedex() {
 
   const filterPokemonsList = (value) => {
     const filteredName = pokeList
-      .filter((pokemon) => pokemon.name.toLowerCase().includes(value.trim().toLowerCase()));
+      .filter((pokemon) => pokemon.name.toLowerCase().includes(value.toLowerCase()));
     setFilteredPokeListCop(filteredName);
   };
 

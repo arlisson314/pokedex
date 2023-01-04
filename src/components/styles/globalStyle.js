@@ -9,7 +9,7 @@ export default createGlobalStyle`
 
 html, body, #root {
   max-height: 100vh;
-  width: 100vw;
+  max-width: 100vw;
   background: linear-gradient(180deg, #444444, lightblue);
   background-repeat: no-repeat;
   background-attachment: fixed;
