@@ -12,7 +12,7 @@ function Pokedex() {
   const [filteredPokeList, setFilteredPokeListCop] = useState([]);
   const [load, setLoad] = useState(true);
   const [offsetNum, setffsetNum] = useState(0);
-  const pokeUrl = `https://pokeapi.co/api/v2/pokemon?offset=${offsetNum}&limit=20`;
+  const pokeUrl = `https://pokeapi.co/api/v2/pokemon?offset=${offsetNum}&limit=40`;
 
   const getPokemons = async () => {
     try {
