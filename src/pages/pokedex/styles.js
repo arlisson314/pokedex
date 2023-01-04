@@ -8,9 +8,17 @@ const Container = styled.div`
   height: 100%;
   width: 100%;
 
-    >h1 {
-      font-size: 2em;
-      padding: 0.5em;
+    >img {
+      width: 15em;
+      height:5.2em;
+      /* border: solid 1px red; */
+    }
+
+    >input {
+      outline: none;
+      padding-left: 1ch;
+      height: 2em;
+      margin-top: -1em;
     }
 
     >div{
