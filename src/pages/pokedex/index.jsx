@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { FaCaretRight, FaCaretLeft } from 'react-icons/fa';
-import PokeLogo from '../../images/PokeLogo.png';
 import PokeCard from '../../components/pokeCard';
 import Button from '../../components/button';
 import Input from '../../components/input';
 
 import Container from './styles';
+import Header from '../../components/header/Header';
 
 function Pokedex() {
   const [pokeList, setPokeList] = useState([]);
@@ -51,7 +51,7 @@ function Pokedex() {
 
   return (
     <Container>
-      <img src={PokeLogo} alt="logo" />
+      <Header />
       <Input filterPokemonsList={filterPokemonsList} />
       <div>
         <Button logo={<FaCaretLeft />} decrementNumPoke={decrementNumPoke} />
