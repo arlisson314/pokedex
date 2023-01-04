@@ -13,15 +13,6 @@ const Container = styled.div`
       height:5.2em;
     }
 
-    >input {
-      padding-left: 1ch;
-      margin-top: -1em;
-      outline: none;
-      height: 2em;
-      border-radius: 5px;
-      border: none;
-    }
-
     >div{
       flex-direction: wrap;
       margin-top:0.4em;
