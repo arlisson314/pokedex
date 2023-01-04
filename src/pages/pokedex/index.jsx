@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { FaCaretRight, FaCaretLeft } from 'react-icons/fa';
 import PokeCard from '../../components/pokeCard';
 
 import Container from './styles';
@@ -57,16 +58,24 @@ function Pokedex() {
         placeholder="Pesquisar pelo nome"
       />
       <div>
-        <button type="button" onClick={decrementNumPoke}>previous</button>
-        <button type="button" onClick={incrementNumPoke}>next</button>
+        <button type="button" onClick={decrementNumPoke}>
+          <FaCaretLeft />
+        </button>
+
+        <button
+          type="button"
+          onClick={incrementNumPoke}
+        >
+          <FaCaretRight />
+        </button>
       </div>
-      <div>
+      <section>
         { load
           ? <h2>loadong...</h2>
           : list.map(({ name, url }) => (
             <PokeCard key={name} url={url} />
           ))}
-      </div>
+      </section>
     </Container>
   );
 }
