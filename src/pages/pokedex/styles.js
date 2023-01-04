@@ -6,7 +6,7 @@ const Container = styled.div`
   align-items: center;
   display: flex;
   height: 100%;
-  width: 1280px;
+  width: 100%;
     >div{
       flex-direction: wrap;
       margin-top:0.4em;
