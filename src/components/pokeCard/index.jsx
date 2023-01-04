@@ -18,7 +18,7 @@ function PokeCard({ url }) {
   useEffect(() => {
     pokemon();
   }, []);
-  // console.log(pokeInfo);
+
   return (
     <Container>
       <img

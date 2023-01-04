@@ -44,13 +44,11 @@ function Pokedex() {
     }
   };
 
-  // console.log(pokeUrl);
-
   const list = filteredPokeList.length ? filteredPokeList : pokeList;
 
   return (
     <Container>
-      <h1>Pokedex</h1>
+      <img src="https://www.pngall.com/wp-content/uploads/13/Pokemon-Logo-PNG-Images-HD.png" alt="logo" />
       <input
         type="text"
         name="searchPokemon"
