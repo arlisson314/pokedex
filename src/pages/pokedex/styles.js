@@ -11,14 +11,15 @@ const Container = styled.div`
     >img {
       width: 15em;
       height:5.2em;
-      /* border: solid 1px red; */
     }
 
     >input {
-      outline: none;
       padding-left: 1ch;
-      height: 2em;
       margin-top: -1em;
+      outline: none;
+      height: 2em;
+      border-radius: 5px;
+      border: none;
     }
 
     >div{
@@ -26,31 +27,6 @@ const Container = styled.div`
       margin-top:0.4em;
       display: flex;
       gap: 1em;
-
-      >button {
-        justify-content: center;
-        align-items: center;
-        border-style: solid;
-        border-color: black;
-        border-radius: 5px;
-        border-width: 1px;
-        font-size: 1.5em;
-        transition: 01s;
-        outline: none;
-        display: flex;
-        color: black;
-        height: 1em;
-        width: 3em;
-        padding: 0;
-      }
-    
-      >button:hover {
-        cursor: pointer;
-        background: red;
-        outline: none;
-        color: white;
-        border: none;
-      }
     }
 
     >section {
