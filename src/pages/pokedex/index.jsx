@@ -3,6 +3,7 @@ import { FaCaretRight, FaCaretLeft } from 'react-icons/fa';
 import PokeLogo from '../../images/PokeLogo.png';
 import PokeCard from '../../components/pokeCard';
 import Button from '../../components/button';
+import Input from '../../components/input';
 
 import Container from './styles';
 
@@ -51,12 +52,7 @@ function Pokedex() {
   return (
     <Container>
       <img src={PokeLogo} alt="logo" />
-      <input
-        type="text"
-        name="searchPokemon"
-        onChange={({ target }) => filterPokemonsList(target.value)}
-        placeholder="Pesquisar pelo nome"
-      />
+      <Input filterPokemonsList={filterPokemonsList} />
       <div>
         <Button logo={<FaCaretLeft />} decrementNumPoke={decrementNumPoke} />
         <Button logo={<FaCaretRight />} decrementNumPoke={incrementNumPoke} />
