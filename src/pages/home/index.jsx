@@ -8,7 +8,7 @@ import Input from '../../components/input';
 import Container from './styles';
 import Header from '../../components/header/Header';
 
-function Pokedex() {
+function Home() {
   const [pokeList, setPokeList] = useState([]);
   const [filteredPokeList, setFilteredPokeList] = useState([]);
   const [load, setLoad] = useState(true);
@@ -77,4 +77,4 @@ function Pokedex() {
   );
 }
 
-export default Pokedex;
+export default Home;
