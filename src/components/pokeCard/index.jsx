@@ -5,14 +5,14 @@ import Container from './styles';
 function PokeCard({ url }) {
   const [pokeInfo, setPokeInfo] = useState(null);
 
-  const getPokemon = () => {
+  const getokemon = () => {
     axios.get(url)
       .then((result) => setPokeInfo(result.data))
       .catch((err) => console.error(err));
   };
 
   useEffect(() => {
-    getPokemon();
+    getokemon();
   }, []);
 
   return (
