@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 const Container = styled.div`
+  -webkit-box-shadow: 5px 7px 5px 1px rgba(0,0,0,0.51);
+  -moz-box-shadow: 5px 7px 5px 1px rgba(0,0,0,0.51);
+  box-shadow: 5px 7px 5px 1px rgba(0,0,0,0.51);
   justify-content: space-between;
   background-color: #dbdbdb;
   border: 1px black solid;
@@ -11,9 +14,6 @@ const Container = styled.div`
   display : flex;
   height: 13.5em;
   width: 12em;
-  -webkit-box-shadow: 5px 7px 5px 1px rgba(0,0,0,0.51);
-  -moz-box-shadow: 5px 7px 5px 1px rgba(0,0,0,0.51);
-  box-shadow: 5px 7px 5px 1px rgba(0,0,0,0.51);
 
     >img {
       border-bottom: 3px solid black;
@@ -26,15 +26,15 @@ const Container = styled.div`
     >h3 {
       font-size: 1.2em;
     }
-    >p {
+    >p{
       font-weight: bold;
-      font-size: 0.9em;
+      font-size: 1em;
       padding: 1px;
     }
 
-    >p:nth-child(2) {
-      font-weight: bold;
-      font-size: 0.3em;
+    >p:nth-of-type(2) {
+      font-size: 0.8em;
+      margin-bottom: 0.5em
     }
 `;
 
