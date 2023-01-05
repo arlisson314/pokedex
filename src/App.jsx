@@ -1,6 +1,7 @@
 import React from 'react';
-import Pokedex from './pages/home';
+// import Home from './pages/home';
 import GlobalStyle from './components/styles/globalStyle';
+import MainRouts from './rotas/routes';
 /*
   Consumir a API e listar todos os poquemons da consulta do seguinte endpoint
   https://pokeapi.co/api/v2/pokemon/
@@ -20,7 +21,8 @@ function App() {
   return (
     <div>
       <GlobalStyle />
-      <Pokedex />
+      {/* <Home /> */}
+      <MainRouts />
     </div>
   );
 }
