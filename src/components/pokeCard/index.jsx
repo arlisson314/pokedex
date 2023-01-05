@@ -1,22 +1,18 @@
 import React, { useEffect, useState } from 'react';
-
+import axios from 'axios';
 import Container from './styles';
 
 function PokeCard({ url }) {
   const [pokeInfo, setPokeInfo] = useState(null);
 
-  const pokemon = async () => {
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      setPokeInfo(data);
-    } catch (error) {
-      console.error(error);
-    }
+  const getPokemon = () => {
+    axios.get(url)
+      .then((result) => setPokeInfo(result.data))
+      .catch((err) => console.error(err));
   };
 
   useEffect(() => {
-    pokemon();
+    getPokemon();
   }, []);
 
   return (

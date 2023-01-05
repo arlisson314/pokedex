@@ -2,13 +2,14 @@ import React from 'react';
 
 import Container from './styles';
 
-function Input({ filterPokemonsList }) {
+function Input({ setInputValue, inputRef }) {
   return (
     <Container>
       <input
         type="text"
+        ref={inputRef}
         name="searchPokemon"
-        onChange={({ target }) => filterPokemonsList(target.value)}
+        onChange={({ target }) => setInputValue(target.value.trim())}
         placeholder="Pesquisar pelo nome"
       />
     </Container>

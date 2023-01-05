@@ -2,10 +2,10 @@ import React from 'react';
 
 import Container from './styles';
 
-function Button({ decrementNumPoke, logo }) {
+function Button({ changeOffset, logo }) {
   return (
     <Container>
-      <button type="button" onClick={decrementNumPoke}>
+      <button type="button" onClick={changeOffset}>
         {logo}
       </button>
     </Container>

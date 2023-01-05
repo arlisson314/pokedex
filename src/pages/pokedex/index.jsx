@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { FaCaretRight, FaCaretLeft } from 'react-icons/fa';
+import axios from 'axios';
 import PokeCard from '../../components/pokeCard';
 import Button from '../../components/button';
 import Input from '../../components/input';
@@ -9,41 +10,49 @@ import Header from '../../components/header/Header';
 
 function Pokedex() {
   const [pokeList, setPokeList] = useState([]);
-  const [filteredPokeList, setFilteredPokeListCop] = useState([]);
+  const [filteredPokeList, setFilteredPokeList] = useState([]);
   const [load, setLoad] = useState(true);
   const [offsetNum, setffsetNum] = useState(0);
+  const [inputValue, setInputValue] = useState('');
+  const inputRef = useRef(null);
+
   const pokeUrl = `https://pokeapi.co/api/v2/pokemon?offset=${offsetNum}&limit=40`;
 
-  const getPokemons = async () => {
-    try {
-      const response = await fetch(pokeUrl);
-      const data = await response.json();
-      const { results } = data;
-      setPokeList(results);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoad(false);
+  const getPokemons = () => {
+    axios.get(pokeUrl)
+      .then((result) => setPokeList(result.data.results))
+      .catch((err) => console.error(err))
+      .finally(() => setLoad(false));
+  };
+
+  const filterPokemonsList = () => {
+    const filteredName = pokeList
+      .filter((pokemon) => pokemon.name.toLowerCase().trim()
+        .includes(inputValue.toLowerCase().trim()));
+
+    setFilteredPokeList(filteredName);
+
+    if (inputValue === '') {
+      setFilteredPokeList([]);
     }
   };
 
   useEffect(() => {
     getPokemons();
-  }, [offsetNum]);
+    filterPokemonsList();
+  }, [offsetNum, inputValue]);
 
-  const filterPokemonsList = (value) => {
-    const filteredName = pokeList
-      .filter((pokemon) => pokemon.name.toLowerCase().includes(value.toLowerCase()));
-    setFilteredPokeListCop(filteredName);
-  };
-
-  const incrementNumPoke = () => {
+  const offsetIncrement = () => {
     setffsetNum(offsetNum + 20);
+    setInputValue('');
+    inputRef.current.value = '';
   };
 
-  const decrementNumPoke = () => {
+  const offsetDecrement = () => {
     if (offsetNum > 0) {
       setffsetNum(offsetNum - 20);
+      setInputValue('');
+      inputRef.current.value = '';
     }
   };
 
@@ -52,10 +61,10 @@ function Pokedex() {
   return (
     <Container>
       <Header />
-      <Input filterPokemonsList={filterPokemonsList} />
+      <Input setInputValue={setInputValue} inputRef={inputRef} />
       <div>
-        <Button logo={<FaCaretLeft />} decrementNumPoke={decrementNumPoke} />
-        <Button logo={<FaCaretRight />} decrementNumPoke={incrementNumPoke} />
+        <Button logo={<FaCaretLeft />} changeOffset={offsetDecrement} />
+        <Button logo={<FaCaretRight />} changeOffset={offsetIncrement} />
       </div>
       <section>
         { load
