@@ -21,7 +21,7 @@ const Container = styled.div`
       display: flex;
       width: 100%;
       height: 100%;
-      gap: 0.5em;
+      gap: 1em;
     }
 `;
 

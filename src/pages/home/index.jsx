@@ -16,7 +16,7 @@ function Home() {
   const [inputValue, setInputValue] = useState('');
   const inputRef = useRef(null);
 
-  const pokeUrl = `https://pokeapi.co/api/v2/pokemon?offset=${offsetNum}&limit=40`;
+  const pokeUrl = `https://pokeapi.co/api/v2/pokemon?offset=${offsetNum}&limit=20`;
 
   const getPokemons = () => {
     axios.get(pokeUrl)
