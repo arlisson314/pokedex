@@ -1,5 +1,5 @@
 import React from 'react';
-import Pokedex from './pages/pokedex';
+import Pokedex from './pages/home';
 import GlobalStyle from './components/styles/globalStyle';
 /*
   Consumir a API e listar todos os poquemons da consulta do seguinte endpoint
