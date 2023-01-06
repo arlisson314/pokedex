@@ -31,6 +31,11 @@ const Container = styled.div`
         display: flex;
         color: yellow;
         border: none;
+        outline: none;
+      }
+      >button:hover {
+        cursor: pointer;
+       
       }
     }
     
