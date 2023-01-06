@@ -14,15 +14,13 @@ const Container = styled.div`
   display : flex;
   height: 13.5em;
   width: 12em;
-
     >img {
       border-bottom: 3px solid black;
-      /* border-top-right-radius: 3px; */
-      /* border-top-left-radius: 3px; */
       background: red;
       height: 8em;
       width: 100%;
     }
+
     >h3 {
       font-size: 1.2em;
     }
@@ -30,11 +28,24 @@ const Container = styled.div`
       font-weight: bold;
       font-size: 1em;
       padding: 1px;
+      display: flex;
+      align-items: center;
+      gap: 1ch;
+    
+      >button {
+        font-size: 1.5em;
+        display: flex;
+        align-self: center;
+        color: yellow;
+        border: none;
+        background: none;
+      }
     }
-
+    
     >p:nth-of-type(2) {
-      font-size: 0.8em;
-      margin-bottom: 0.5em
+      margin-bottom: 0.5em;
+      font-size: 1em;
+      font-weight: bold;
     }
 `;
 
