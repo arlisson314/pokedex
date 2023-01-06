@@ -3,7 +3,7 @@ import React from 'react';
 import Container from './styles';
 
 function CardItems({
-  pokeInfo, test, icon, handleKeyDown,
+  pokeInfo, addFavorites, icon, handleKeyDown,
 }) {
   return (
     <Container>
@@ -14,7 +14,7 @@ function CardItems({
       <h3>{`${pokeInfo?.id}. ${pokeInfo?.name}`}</h3>
       <p>
         {`Level - ${pokeInfo?.base_experience}`}
-        <button type="button" onClick={test()} onKeyDown={(e) => handleKeyDown(e)}>{icon}</button>
+        <button type="button" onClick={addFavorites} onKeyDown={(e) => handleKeyDown(e)}>{icon}</button>
       </p>
       {pokeInfo?.types.length > 1
         ? (<p>{`Tipos: ${pokeInfo?.types[0].type.name}, ${pokeInfo?.types[1].type.name}`}</p>)
