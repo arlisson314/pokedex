@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { AiTwotoneStar } from 'react-icons/ai';
+import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 import Container from './styles';
 import CardItems from '../cardItems';
 // AiOutlineStar
@@ -9,6 +9,8 @@ import CardItems from '../cardItems';
 // AiTwotoneStar
 function PokeCard({ url }) {
   const [pokeInfo, setPokeInfo] = useState(null);
+  const [isClicekd, setIsClicekd] = useState(false);
+
   const getokemon = () => {
     axios.get(url)
       .then((result) => setPokeInfo(result.data))
@@ -19,7 +21,10 @@ function PokeCard({ url }) {
     getokemon();
   }, []);
 
-  const addFavorites = () => console.log('oi');
+  const addFavorites = (id) => {
+    setIsClicekd(!isClicekd);
+    console.log(id);
+  };
 
   const handleKeyDown = (e) => {
     if (e.keyCode === 13) {
@@ -33,7 +38,7 @@ function PokeCard({ url }) {
         pokeInfo={pokeInfo}
         addFavorites={addFavorites}
         handleKeyDown={handleKeyDown}
-        icon={<AiTwotoneStar />}
+        icon={isClicekd ? <AiFillStar /> : <AiOutlineStar />}
       />
     </Container>
   );
